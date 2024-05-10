@@ -42,11 +42,5 @@ Usage:
         Add items to your cart, checkout, and view your order history.
         Update personal information through the profile settings.
 
-Support:
-
-For any issues or queries, please contact the support team at support@lieferplatz.com.
-Contributions:
-
-Contributions to the project are welcome. Please fork the repository, make your changes, and submit a pull request.
 
 This README provides an overview of the Lieferplatz platform. For detailed developer documentation, see the docs directory in the project repository.
