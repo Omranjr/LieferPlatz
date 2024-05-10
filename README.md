@@ -43,4 +43,19 @@ Usage:
         Update personal information through the profile settings.
 
 
-This README provides an overview of the Lieferplatz platform. For detailed developer documentation, see the docs directory in the project repository.
+This README provides an overview of the Lieferplatz platform. For detailed developer documentation, see the docs directory in the project repository or alternatively the below screenshots for a quick overview.
+
+
+![Screenshot 2024-05-10 233727](https://github.com/abdhatim/LieferPlatz/assets/150301430/597ec410-bc81-4409-b389-3b5e79b4c5de)
+
+![Screenshot 2024-05-10 233807](https://github.com/abdhatim/LieferPlatz/assets/150301430/1121c8ac-b05b-4fef-89f4-efd8588ec5ce)
+
+![Screenshot 2024-05-10 234241](https://github.com/abdhatim/LieferPlatz/assets/150301430/3f2c5d7f-de33-425e-88f4-50973bb592b3)
+
+![Screenshot 2024-05-10 234316](https://github.com/abdhatim/LieferPlatz/assets/150301430/36c8f945-af02-4274-8a94-cdf90339a54a)
+
+![Screenshot 2024-05-10 234333](https://github.com/abdhatim/LieferPlatz/assets/150301430/139fe918-11d1-4f91-838b-0ca61a06ea35)
+
+![Screenshot 2024-05-10 234343](https://github.com/abdhatim/LieferPlatz/assets/150301430/e82d5122-9412-48d6-a7c8-8d8695306cf4)
+
+![Screenshot 2024-05-10 234401](https://github.com/abdhatim/LieferPlatz/assets/150301430/1248cf31-bcdc-4cfb-889d-b24caaf8c5d4)
