@@ -1,0 +1,90 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark theme background */
+    color: #ffffff; /* White text color for better readability */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Cart Container */
+.cart-container {
+    width: 100%; /* Full width of the content area */
+    max-width: 800px; /* Max width can be increased for larger screens */
+    background-color: #1c1c1c; /* Slightly lighter than body for contrast */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    margin: auto; /* Center the cart container */
+    overflow: auto; /* Ensures the container allows for internal scrolling if needed */
+}
+
+/* Typography */
+h2, h3 {
+    color: #ff8c00; /* Orange color for headers */
+    margin: 20px 0; /* Spacing above and below headers */
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Full width of its container */
+    border-collapse: collapse; /* Collapses border to avoid double lines */
+    margin-bottom: 20px; /* Spacing below the table */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ff8c00; /* Orange border for separation */
+}
+
+th {
+    background-color: #ff8c00; /* Orange background for table headers */
+    color: #1a1a1a; /* Dark text for contrast */
+}
+
+tr:nth-child(even) {
+    background-color: #262626; /* Zebra striping for rows */
+}
+
+/* Buttons and Input Styles */
+input[type="number"], input[type="submit"], button {
+    border: 1px solid #ff8c00; /* Orange border for inputs and buttons */
+    background-color: #2a2a2a; /* Dark background for inputs and buttons */
+    color: #ffffff; /* White text for readability */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners for inputs and buttons */
+    margin: 5px; /* Spacing around inputs and buttons */
+    text-align: center;
+}
+
+input[type="submit"], button {
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for button backgrounds */
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #e57c00; /* Slightly lighter orange for button hover state */
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a; /* Dark background for footer */
+    color: #ff8c00; /* Orange text for footer */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 10px;
+    }
+
+    h2, h3 {
+        margin: 10px 0; /* Reduced spacing for headers on smaller screens */
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/customer-food-view.css">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Menu Items</title>
+</head>
+<body>
+
+<header>
+        <h1 th:text="${restaurant.name}">Restaurant Name</h1>
+        <!-- View Cart Button -->
+    <img th:src="@{'data:image/jpeg;base64,'+${restaurant.generateBase64Image()}}" class="restaurant-cover"/>
+        <a href="/cart/view" class="view-cart-btn">View Cart</a>
+
+</header>
+
+<section id="menu-items">
+    <h2>Menu</h2>
+    <div th:each="item : ${menuItems}">
+        <div>
+            <h3 th:text="${item.name}">Item Name</h3>
+            <p th:text="${item.description}">Description</p>
+            <p><strong>Price:</strong> <span th:text="${item.price}">Price</span></p>
+            <img th:src="@{'data:image/jpeg;base64,'+${item.generateBase64Image()}}" class="item-cover"/>
+            <!-- Add to Cart Form -->
+            <form th:action="@{/cart/add}" method="post">
+                <input type="hidden" name="itemId" th:value="${item.id}" />
+                <label>
+                    <input type="number" name="quantity" min="1" value="1" />
+                </label>
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+</body>
+</html>

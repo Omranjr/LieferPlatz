@@ -1,0 +1,4 @@
+update customer
+set zip_code = 45478
+where id = 1
+

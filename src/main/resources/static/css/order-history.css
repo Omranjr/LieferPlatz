@@ -1,0 +1,52 @@
+/* main.css */
+body {
+    background-color: #121212; /* Dark background */
+    color: #E0E0E0; /* Light grey text for readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #FFA500; /* Orange color for headings */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #333; /* Subtle borders for rows */
+}
+
+th {
+    background-color: #333; /* Darker background for table headers */
+    color: #FFA500; /* Orange text for headers */
+}
+
+td {
+    color: #E0E0E0; /* Light grey text */
+}
+
+tr:hover {
+    background-color: #222; /* Slightly lighter row background on hover */
+}
+
+/* Additional styling for links/buttons if any */
+a, button {
+    background-color: #FFA500; /* Orange background for buttons/links */
+    color: #121212; /* Dark text */
+    padding: 8px 16px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a:hover, button:hover {
+    opacity: 0.9;
+}

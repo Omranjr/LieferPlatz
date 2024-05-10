@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/restaurant-dashboard.css}">
+    <script
+            class="jsbin"
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    ></script>
+    <script
+            class="jsbin"
+            src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"
+    ></script>
+</head>
+<body>
+<header>
+    <h2>Welcome, <span th:text="${restaurant.name}">Restaurant Name</span>!</h2>
+    <img th:src="@{'data:image/jpeg;base64,'+${restaurant.generateBase64Image()}}" class="restaurant-cover"/>
+</header>
+
+<section>
+
+    <h3>My Menu</h3>
+    <ul>
+        <li th:each="item : ${items}">
+            <p><strong>Item Name:</strong> <span th:text="${item.name}">Item Name</span></p>
+            <p><strong>Item Description:</strong> <span th:text="${item.description}">Description</span></p>
+            <p><strong>Item Price:</strong> <span th:text="${item.price}">Price</span></p>
+            <img th:src="@{'data:image/jpeg;base64,'+${item.generateBase64Image()}}" class="item-cover"/>
+            <div>
+                <a th:href="@{/items/edit/{id}(id=${item.id})}" class="button">Edit Item</a>
+                <form th:action="@{/items/delete/{id}(id=${item.id})}" method="post">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <input type="hidden" name="restaurantId" th:value="${restaurant.id}" />
+                    <button type="submit" class="button">Delete Item</button>
+                </form>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h3>Add New Item</h3>
+    <div class="item-card">
+        <form th:action="@{/items/save}" method="post" th:object="${item}" class="item-form" enctype="multipart/form-data">
+            <input type="hidden" th:field="*{id}" />
+            <label>Item Name: <input type="text" th:field="*{name}" required/></label><br/>
+            <label>Item Description: <input type="text" th:field="*{description}" required/></label><br/>
+            <label>Item Price: <input type="number" step="0.01" th:field="*{price}" required/></label><br/>
+            <input type="hidden" name="restaurantId" th:value="${restaurant.id}" />
+            <label for="multipartImage">Restaurant Cover:</label>
+
+            <img th:if="${item.name != null}" th:src="@{'data:image/jpeg;base64,'+${item.generateBase64Image()}}" class="item-cover"/>
+
+            <img id="imageCover" src="#" alt="" />
+            <input type="file" id="multipartImage" name="multipartImage" accept="multipartImage/gif, multipartImage/jpeg, multipartImage/png" onchange=" readURL(this); function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+        $('#imageCover').attr('src', e.target.result).width(200).height(100);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+  }
+    }">
+            <button type="submit">Save Item</button>
+        </form>
+    </div>
+</section>
+
+<section>
+    <h3>Order Management & History</h3>
+    <div th:each="order : ${orders}" class="order-card">
+        <h4>Order ID: <span th:text="${order.id}"></span></h4>
+        <p>Date/Time: <span th:text="${order.orderDateTime}"></span></p>
+        <p>Status: <span th:text="${order.status}"></span></p>
+        <p>Total Price: <span th:text="${order.totalPrice}"></span></p>
+
+        <!-- Update form is only shown if status is neither DELIVERED nor CANCELLED -->
+        <div th:if="${order.status.name() != 'CANCELLED' and order.status.name() != 'DELIVERED'}">
+
+        <form th:action="@{/restaurants/orders/{orderId}/updateStatus(orderId=${order.id})}" method="post">
+            <input type="hidden" name="restaurantId" th:value="${restaurant.id}" />
+            <div class="select-wrapper">
+            <select name="status">
+                    <option th:each="statusEnum : ${T(com.LieferPlatzProject.LieferPlatz.Model.OrderStatus).values()}"
+                            th:value="${statusEnum}" th:text="${statusEnum}"
+                            th:selected="${statusEnum.name() == order.status.name()}">
+                    </option>
+                </select>
+            </div>
+                <button type="submit" class="button">Update Status</button>
+            </form>
+        </div>
+
+        <!-- Show status text when it's DELIVERED or CANCELLED -->
+        <div th:if="${order.status == 'DELIVERED' or order.status == 'CANCELLED'}">
+            <p><strong>Status:</strong> <span th:text="${order.status}"></span></p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Lieferplatz. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Deep, rich black background */
+    color: #e0e0e0; /* Light grey text for high contrast */
+    flex-grow: 1;
+}
+
+header {
+    background: linear-gradient(135deg, #ff8800 0%, #ff6e00 100%);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+    justify-content: space-between;
+    align-content: center;
+    display: flex;
+
+}
+
+header h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Menu & Orders Section */
+section {
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+section h3 {
+    font-size: 1.5rem;
+    color: #ff8c00;
+    margin-bottom: 15px;
+}
+
+.restaurant-cover{
+    width: 40%;
+    height: 100px;
+}
+
+.item-cover{
+    width: 100%;
+}
+
+/* Styling for menu items and order cards */
+ul, .order-card {
+    list-style-type: none;
+    padding: 0;
+}
+
+li, .order-card {
+    background: #1e1e1e;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+}
+
+li:hover, .order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .6);
+}
+
+/* Button and Link Styles */
+.form-button-container {
+    display: flex;
+    /* Space between buttons */
+    flex-wrap: wrap; /* Wrap buttons to next line on small screens */
+}
+
+button, a {
+    background: linear-gradient(135deg, #ff8800 0%, #ff6e00 100%);
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background .3s, transform .2s;
+    font-weight: bold;
+    margin: 20px 30px; /* Spacing around buttons */
+    text-align: center;
+
+}
+
+button:hover, a:hover {
+    background: linear-gradient(135deg, #ffaa00 0%, #ff7e00 100%);
+    transform: scale(1.05);
+}
+
+.edit-item-button,
+.delete-item-button {
+    flex: 1; /* Flex grow to fill space */
+    max-width: calc(50% - 5px); /* Subtract the gap from the max width */
+    flex-basis: 48%
+}
+/* Dropdown Styles */
+select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    width: 100%;
+
+}
+
+/* Footer Styles */
+footer {
+    background: #121212;
+    color: #ff8c00;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header, footer, section {
+        padding: 15px;
+    }
+
+    header h2, section h3 {
+        font-size: 1.25rem;
+    }
+
+    .form-button-container {
+        justify-content: center;
+    }
+
+    .edit-item-button,
+    .delete-item-button {
+        max-width: none;
+    }
+}
+
+.item-form {
+    background: #1e1e1e;
+    padding: 20px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.item-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ff8c00;
+}
+
+.item-form input[type="text"],
+.item-form input[type="number"],
+.item-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    color: #333;
+}
+
+.item-form button[type="submit"] {
+    background: linear-gradient(135deg, #ff8800 0%, #ff6e00 100%);
+    color: #fff;
+    padding: 10px 15px;
+}
+
+
+
+
+

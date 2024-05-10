@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard</title>
+  <link rel="stylesheet" href="/css/customer-dashboard.css">
+</head>
+<body>
+<div class="content-wrapper">
+<header>
+  <h2>Welcome, <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span>!</h2>
+  <!-- Add any additional information or navigation links here -->
+</header>
+
+
+<section>
+  <h3>Account Information</h3>
+  <!-- Display customer details -->
+  <p><strong>Name:</strong> <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span></p>
+  <p><strong>Email:</strong> <span th:text="${customer.email}"></span></p>
+  <p><strong>Address:</strong> <span th:text="${customer.street}"></span>, <span th:text="${customer.buildingNumber}"></span>, <span th:text="${customer.city}"></span> - <span th:text="${customer.zipCode}"></span></p>
+  <!-- Add more details based on your customer entity -->
+</section>
+
+<section>
+  <h3>Open Restaurants</h3>
+  <div class="restaurants-container">
+    <div th:each="restaurant : ${openRestaurants}" class="restaurant-card">
+      <a th:href="@{/restaurants/{restaurantId}/details(restaurantId=${restaurant.id})}" class="restaurant-link">
+        <div class="restaurant-info">
+          <h4 th:text="${restaurant.name}">Restaurant Name</h4>
+          <p><strong>Opening Hours:</strong> <span th:text="${restaurant.openingHours}">00:00</span> - <span th:text="${restaurant.closingHours}">00:00</span></p>
+          <img th:src="@{'data:image/jpeg;base64,'+${restaurant.generateBase64Image()}}" class="restaurant-cover"/>
+          <!-- Add more restaurant details here -->
+        </div>
+      </a>
+    </div>
+  </div>
+  <section>
+    <h3>Active Orders</h3>
+    <div class="active-orders-container">
+      <div th:each="order : ${activeOrders}" class="order-card">
+        <h4>Order ID: <span th:text="${order.id}"></span></h4>
+        <p>Status: <span th:text="${order.status}"></span></p>
+        <p>Date/Time: <span th:text="${order.orderDateTime}"></span></p>
+        <p>Total Price: <span th:text="${order.totalPrice}"></span></p>
+        <!-- Include a form or link for actions like 'Cancel Order' if needed -->
+        <form th:action="@{/customers/order/cancel}" method="post">
+          <input type="hidden" name="orderId" th:value="${order.id}" />
+          <button type="submit">Cancel Order</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</section>
+  <section>
+    <a th:href="@{/customers/dashboard/{customerId}/order-history(customerId=${customer.id})}" class="btn-view-order-history">View Order History</a>
+  </section>
+
+</div>
+
+
+
+<footer>
+  <p>&copy; 2024 Lieferplatz. All rights reserved.</p>
+</footer>
+</body>
+</html>

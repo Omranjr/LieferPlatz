@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/order-confirmation.css}">
+    <title>Order Confirmation</title>
+</head>
+<body>
+
+<div class="receipt-container">
+    <h2>Order Confirmation</h2>
+    <p>Thank you for your order!</p>
+    <p><strong>Order ID:</strong> <span th:text="${order.id}">Order ID</span></p>
+    <p><strong>Order Date:</strong> <span th:text="${order.orderDateTime.toLocalDate()}">Order Date</span></p>
+    <p><strong>Order Time:</strong> <span th:text="${order.orderDateTime.toLocalTime()}">Order Time</span></p>
+
+    <h3>Items Ordered:</h3>
+    <div th:each="orderItem : ${order.orderItems}">
+        <div>Name: <span th:text="${orderItem.name}">Item Name</span></div>
+        <div>Quantity: <span th:text="${orderItem.quantity}">Item Quantity</span></div>
+        <div>Price: <span th:text="${orderItem.price}">Item Price</span></div>
+    </div>
+
+
+    <p><strong>Total Price:</strong> <span th:text="${order.totalPrice}">Total Price</span></p>
+
+    <a href="/customers/dashboard/" th:href="@{/}">View Order Status</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* customer-dashboard.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #2a2a2a; /* Dark grey background */
+    color: #f0f0f0; /* Light grey text for readability */
+}
+
+header {
+    background-color: #333;
+    color: #ff8c00; /* Orange text for contrast */
+    padding: 20px 0;
+    text-align: center;
+}
+
+h2, h3, h4 {
+    margin: 10px 0;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    background-color: #1e1e1e; /* Slightly darker grey for sections */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.restaurant-card, .order-card {
+    background-color: #252525; /* Dark cards for each restaurant/order */
+    margin: 10px 0;
+    padding: 15px;
+    border-left: 5px solid #ff8c00; /* Orange accent line */
+    border-radius: 5px;
+}
+
+.restaurant-info, .order-info {
+    margin: 10px 0;
+}
+
+a.restaurant-link, .btn-view-order-history {
+    color: #ff8c00;
+    text-decoration: none;
+    background-color: transparent;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+a.restaurant-link:hover, .btn-view-order-history:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #ff8c00;
+    color: #2a2a2a;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e07c00; /* Darker orange on hover */
+}
+
+footer {
+    background-color: #333;
+    color: #ff8c00;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 10px;
+    }
+
+    header, footer, section {
+        padding: 15px;
+    }
+
+    .restaurant-card, .order-card {
+        margin: 10px auto;
+    }
+}
+
+.restaurant-cover{
+    width: 100%;
+}

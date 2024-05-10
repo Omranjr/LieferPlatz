@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" href="/css/cart-view.css">
+</head>
+<body>
+<div class="cart-container">
+<h2>Your Cart</h2>
+
+<div th:if="${not #lists.isEmpty(cart.items)}">
+    <table>
+        <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${cart.items}">
+            <td th:text="${item.name}">Item Name</td>
+            <td>
+                <form th:action="@{/cart/update}" method="post">
+                    <input type="hidden" name="itemId" th:value="${item.itemId}" />
+                    <input type="number" name="quantity" th:value="${item.quantity}" min="1" />
+                    <input type="submit" value="Update" />
+                </form>
+            </td>
+            <td th:text="${item.price}">Price</td>
+            <td>
+                <form th:action="@{/cart/delete}" method="post">
+                    <input type="hidden" name="itemId" th:value="${item.itemId}" />
+                    <input type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Total: <span th:text="${cart.totalPrice}">Total Price</span></h3>
+
+    <form action="/order/checkout" method="post">
+        <input type="submit" value="Checkout" />
+    </form>
+</div>
+
+<div th:if="${#lists.isEmpty(cart.items)}">
+    <p>Your cart is empty.</p>
+</div>
+
+</div>
+
+</body>
+</html>

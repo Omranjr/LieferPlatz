@@ -1,0 +1,93 @@
+/* Base styles */
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Viewport Height */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a; /* Dark background for contrast */
+    color: #ffffff; /* Light text for readability */
+}
+
+header {
+    background-color: #ff8c00; /* Vibrant orange */
+    color: #1a1a1a; /* Dark text for contrast */
+    padding: 20px 10%;
+    text-align: center;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Center login sections horizontally */
+    align-items: center; /* Center login sections vertically */
+    flex-direction: column; /* Stack them vertically */
+    padding: 20px;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; /* Ensure it fills the container */
+    max-width: 960px; /* Maximum width of the login area */
+    gap: 20px; /* Space between login sections */
+}
+
+.login-section {
+    flex: 1; /* Each section takes equal width */
+    background-color: #262626; /* Slightly lighter black for login sections */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.login-container h2 {
+    color: #ff8c00; /* Orange for headings */
+}
+
+input[type="email"], input[type="password"]{
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="email"], input[type="password"] {
+    background-color: #333; /* Darker background for input fields */
+    color: #ffffff;
+}
+
+button {
+    background-color: #ff8c00; /* Vibrant orange for buttons */
+    color: #1a1a1a;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e57c00; /* Slightly darker orange on hover */
+}
+
+a {
+    color: #ff8c00; /* Orange links */
+    text-decoration: none;
+}
+
+footer {
+    background-color: #262626;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;:
+}
